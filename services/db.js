@@ -15,29 +15,21 @@ async function getConnection() {
 
 // Den här funktionen ska göra ett anrop till databasen för att hämta alla users.
 async function getUsers() {
-  console.log("Hämtar användare i modul...")
-
   const connection = await getConnection()
   const result = await connection.execute("SELECT * FROM users")
-
-  console.log("resultatet från databasen", result)
 
   await connection.end() //Stänger kopplingen till databasen.
   return result[0] //Plats 0 innehåller alla rader som returnerats från databasen.
 }
 
 async function getPostsByUserId(userId) {
-  console.log("Hämtar användare i modul...")
-
   const connection = await getConnection()
   const result = await connection.execute(
     "SELECT * FROM posts WHERE user_id = ?",
     [userId]
   )
 
-  console.log("resultatet från databasen", result)
-
-  await connection.end() //Stänger kopplingen till databasen.
+  await connection.end()
   return result[0] //Plats 0 innehåller alla rader som returnerats från databasen.
 }
 
