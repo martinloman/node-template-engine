@@ -22,7 +22,7 @@ För att köra koden behöver du först installera dess dependencies. Det gör d
 npm install
 ```
 
-i rotmappen. Det kommer installera npm-paketet [mysql2](https://www.npmjs.com/package/mysql2) samt [express](https://www.npmjs.com/package/express).
+i rotmappen. Det kommer installera npm-paketen [mysql2](https://www.npmjs.com/package/mysql2), [express](https://www.npmjs.com/package/express) samt [express-handlebars](https://www.npmjs.com/package/express-handlebars).
 
 ### Köra koden
 
