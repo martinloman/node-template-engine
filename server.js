@@ -4,6 +4,13 @@ import db from "./services/db.js"
 
 const app = express()
 
+/*
+  Det här gör att alla filer i mappen public skickas till webbläsaren om den ber om det.
+  Om webbläsaren frågar efter t.ex. /style.css
+  Så kommer Express skicka /public/style.css
+*/
+app.use(express.static("public"))
+
 app.engine("handlebars", engine())
 app.set("view engine", "handlebars")
 app.set("views", "./views")
