@@ -6,21 +6,28 @@ const app = express()
 
 /*
   Det här gör att alla filer i mappen public skickas till webbläsaren om den ber om det.
-  Om webbläsaren frågar efter t.ex. /style.css
-  Så kommer Express skicka /public/style.css
+  Om webbläsaren frågar efter t.ex. 
+  /style.css 
+  så kommer Express skicka 
+  /public/style.css
 */
 app.use(express.static("public"))
 
+// Sätter upp handlebars som template engine.
 app.engine("handlebars", engine())
 app.set("view engine", "handlebars")
-app.set("views", "./views")
+app.set("views", "./views") //Talar om att alla mallar/templates/vyer ligger i mappen views.
 
 app.get("/", (req, res) => {
-  res.render("home")
+  res.render("home") //Säger att vyn home ska användas och resultatet skickas som svar.
 })
 
 app.get("/users", async (req, res) => {
-  const users = await db.getUsers()
+  const users = await db.getUsers() // Hämtar alla users ur databasen
+
+  //Säger att vyn users ska användas och man sickar med
+  //ett objekt som har en egenskap, "users", som är en array med alla users.
+  //Det objektet kan användas av mallen/templaten/vyn.
   res.render("users", { users })
 })
 
