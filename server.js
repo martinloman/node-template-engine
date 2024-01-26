@@ -1,11 +1,11 @@
-import express from "express"
-import { engine } from "express-handlebars"
-import db from "./services/db.js"
+const express = require("express")
+const { engine } = require("express-handlebars")
+const db = require("./services/db")
 
 const app = express()
 
 /*
-  Det här gör att alla filer i mappen public skickas till webbläsaren om den ber om det.
+  app.use(express.static("public")) gör att alla filer i mappen public skickas till webbläsaren om den ber om det.
   Om webbläsaren frågar efter t.ex. 
   /style.css 
   så kommer Express skicka 
@@ -39,5 +39,5 @@ app.get("/posts", async (req, res) => {
 
 const port = 3000
 app.listen(port, () => {
-  console.log(`Server running on port: ${port}`)
+  console.log(`Server running on http://localhost:${port}`)
 })

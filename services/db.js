@@ -1,7 +1,7 @@
 // Detta är en modul som samlar all databaskommunikation.
 
 //Paketet mysql är installerat med "npm install mysql2"
-import mysql from "mysql2/promise" // "mysql2/promise" gör att vi kan använda async/await istället för callbacks.
+const mysql = require("mysql2/promise") // "mysql2/promise" gör att vi kan använda async/await istället för callbacks.
 
 // Här skapas ett databaskopplings-objekt med inställningar för att ansluta till servern och databasen.
 async function getConnection() {
@@ -34,7 +34,7 @@ async function getPostsByUserId(userId) {
 }
 
 // Detta exporterar delar av modulen så att andra filer kan komma åt dem med require.
-export default {
+module.exports = {
   getUsers,
   getPostsByUserId,
 }
